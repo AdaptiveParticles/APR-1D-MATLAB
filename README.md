@@ -27,6 +27,9 @@ Note: Some files require the use of simulink.
 ### demo_compare_continuous
 *demo_compare_continuous: Compares the Implied Resolution Function R^*(y), Local Resolution Estimate L(y), with continuous optimal solutions, and Particle Cells. Reproduces plots from Figure2 of Cheeseman et al. 2018.
 
+### demo_seperable_property_video
+*demo_pulling_scheme_movie: Shows the Pulling Scheme working step by step in a 'movie' adding Particle Cells from the highest level to lowest, using the seperability property
+
 ## Notes:
 
 *The code assumes you are fimiliar with the naming concepts introduced in Cheeseman et al. 2018.
