@@ -11,8 +11,8 @@ close all
 
 %%
 
-E = 0.1;
-a = 1;
+E = 0.1; %set relative error
+a = 1; %fixed
 dom = [-.5,.5];
 
 % define symulink symbolic function (so it can take arbitrary derivatives)
@@ -21,13 +21,12 @@ s = 0.01;
 
 %currently the scale works for 0 centered functions to if you want to use
 %offset functions, make sure you change that!
-
 syms x
 %f_s(x) = exp(-(x-x_o)^2/s) - exp(-(x-0.3)^2/.1) + exp(-(x+5)^2/.1) ;
-f_s(x) = exp(-(x-x_o)^2/s);
+f_s(x) = exp(-(x-x_o)^2/s); %feel free to change for your own function
 
-plot_flag = true;
-
+%turn certain flags on and off
+plot_flag_recon = false;
 compare_optimal = true;
 
 %% Get APR
@@ -58,13 +57,15 @@ disp(['num_parts: ',num2str(apr.num_parts),' full_res: ',num2str(2^apr.l_max)])
 disp(['num_parts sym: ',num2str(apr_f.num_parts),' full_res: ',num2str(2^apr_f.l_max)])
 
 figure;
-plot(apr.y_p,apr.f_p,'x-')
+plot(apr.y_p,apr.f_p,'x')
+hold on;
+plot(apr.y_p,apr.f_p,'-')
 xlabel('y_p')
 ylabel('f_p')
 title('APR Sampling')
 
 %% Test Accuracy
-plot_flag_recon = false; %if you want output of the reconstruction chance to true
+ %if you want output of the reconstruction chance to true
 check_f_recon(apr,plot_flag_recon);
 
 %% Look at the Local Resolution Estimate Functions
@@ -98,19 +99,18 @@ if (compare_optimal)
     % resolution condition bound continous resolution solution
     [R_opt_b,y_b] =  compute_resolution_bound_cont_n(apr,y);
     time_cont = toc;
-    
-    
-    figure;plot(y,R_opt,'Displayname','R continous brute-force')
-    hold on
-    plot(y_b,R_opt_b,'Displayname','R continous bound')
-    
-    plot(apr.y_p,(apr.s_dom(2) - apr.s_dom(1))./(2.^apr.c_l),'*-','Displayname','R optimal-a');
-    
-    ylim([0,max(R_opt_b)])
-    legend('show')
-    xlabel('Spatial Domain (y)')
-    ylabel('Resolution R(y)')
-    
+   
+%     figure;plot(y,R_opt,'Displayname','R continous brute-force')
+%     hold on
+%     plot(y_b,R_opt_b,'Displayname','R continous bound')
+%     
+%     plot(apr.y_p,(apr.s_dom(2) - apr.s_dom(1))./(2.^apr.c_l),'*-','Displayname','R optimal-a');
+%     
+%     ylim([0,max(R_opt_b)])
+%     legend('show')
+%     xlabel('Spatial Domain (y)')
+%     ylabel('Resolution R(y)')
+%     
     %difference, in terms of integral (1/R)
     int_R_opt = sum(min(diff(y))./R_opt);
     int_R_opt_b = sum(min(diff(y))./R_opt_b);
