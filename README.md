@@ -13,7 +13,9 @@ Note: Some files require the use of simulink.
 
 ### demo_basic
 *demo_apr_1D_naive_scheme_comparison: Computes the APR, using both a naive approach using Particle Cells, and the Pulling Scheme.
+
 *demo_apr_1D_reconstruction: Computes the APR, comparing different reconstruction methods, and showing the satisfaction of the Reconstruction Bound.
+
 *demo_equivalence_optimization: Compares forming the APR, with, and without, the Equivalence Optimization for the Pulling Scheme.
 
 ### demo_reconstruction_condition
@@ -28,8 +30,11 @@ Note: Some files require the use of simulink.
 ## Notes:
 
 *The code assumes you are fimiliar with the naming concepts introduced in Cheeseman et al. 2018.
+
 *Feel free to play with the functions, domain size, and bounds, and relative error E.
+
 *Conceptually little changes in higher dimensions, with the exception of complexity of data-structures and access.
+
 
 
 
