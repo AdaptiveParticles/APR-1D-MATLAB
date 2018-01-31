@@ -21,8 +21,8 @@ s = 0.01;
 %currently the scale works for 0 centered functions to if you want to use
 %offset functions, make sure you change that!
 syms x
-f_s(x) = exp(-(x-x_o)^2/s) - exp(-(x-0.3)^2/.1) + exp(-(x+5)^2/.1) ;
-%f_s(x) = exp(-(x-x_o)^2/s); %feel free to change for your own function
+%f_s(x) = exp(-(x-x_o)^2/s) - exp(-(x-0.3)^2/.1) + exp(-(x+5)^2/.1) ;
+f_s(x) = exp(-(x-x_o)^2/s); %feel free to change for your own function
 
 %turn certain flags on and off
 plot_flag_recon = false;
@@ -30,7 +30,7 @@ compare_optimal = true;
 
 %% Get APR
 
-N_o = 4000;
+N_o = 4000; %for your own functions this may have to change.
 
 y_n = linspace(dom(1),dom(2),N_o);
 
