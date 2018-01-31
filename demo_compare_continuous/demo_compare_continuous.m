@@ -1,8 +1,7 @@
 %
 %   Run different order of approximation and compare with continous solutions demo
 %
-%   Works for symbollically defined functions that are differentiable up to
-%   the order you wish to bound.
+%   Works for symbollically defined functions.
 %
 %
 
@@ -22,8 +21,8 @@ s = 0.01;
 %currently the scale works for 0 centered functions to if you want to use
 %offset functions, make sure you change that!
 syms x
-%f_s(x) = exp(-(x-x_o)^2/s) - exp(-(x-0.3)^2/.1) + exp(-(x+5)^2/.1) ;
-f_s(x) = exp(-(x-x_o)^2/s); %feel free to change for your own function
+f_s(x) = exp(-(x-x_o)^2/s) - exp(-(x-0.3)^2/.1) + exp(-(x+5)^2/.1) ;
+%f_s(x) = exp(-(x-x_o)^2/s); %feel free to change for your own function
 
 %turn certain flags on and off
 plot_flag_recon = false;
@@ -154,7 +153,7 @@ plot(y,apr.L_f,'Displayname','L(y)');
 plot(y,R_opt,'Displayname','R_c')
 hold on
 plot(y_b,R_opt_b,'Displayname','R_b')
-plot(y_i,R_i,'k','Displayname','R^* implied particle cells','LineWidth',2);
+plot(y_i,R_i,'k','Displayname','R^* implied Particle Cells','LineWidth',2);
 
 axis equal
 ylim([0,0.5])

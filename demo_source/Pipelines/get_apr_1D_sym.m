@@ -53,8 +53,6 @@ end
 %% compute the maximum level
 apr.l_max = 0;
 
-
-
 for i = a_min:a_max
     apr.l_max = max(apr.l_max,calc_l_max(apr.df{i},apr.s_dom,apr.E,apr.scale(i),i));
 end
@@ -80,6 +78,8 @@ end
 
 L_pc = create_local_particle_set(y,apr.L_f,apr.s_dom,apr.l_max,type);
 
+apr.L_pc = L_pc;
+
 %% Calculate V the optimal valid particle cell set
 tic;
 
@@ -87,9 +87,10 @@ V_pc = pulling_scheme_method(L_pc,apr.l_min,apr.l_max);
 
 apr.calc_v_time = toc;
 
+apr.V_pc = V_pc;
+
 %% Now construct the APR samplign the function
 
-
- apr = sample_apr(V_pc,apr,apr.f,type);
+apr = sample_apr(V_pc,apr,apr.f,type);
 
 end
