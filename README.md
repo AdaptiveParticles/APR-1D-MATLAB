@@ -1,7 +1,7 @@
 # APR_1D_demo
 This repository gives a didactic introduction to the Adaptive Particle Representation with simple 1D examples.
 
-For an introduction or citation for the Adaptive Particle Representation please see: Cheeseman et al. 2018 (Forget Pixels: Adaptive Particle Representation of Fluorescence Microscopy Images)
+For an introduction or citation for the Adaptive Particle Representation please see: Cheeseman et al. 2018 (Forget Pixels: Adaptive Particle Representation of Fluorescence Microscopy Images) https://www.biorxiv.org/content/early/2018/02/09/263061
 
 ## Usage:
 
